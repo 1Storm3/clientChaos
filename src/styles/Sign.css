@@ -1,0 +1,117 @@
+@media (max-width: 430px) {
+  .container {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  .container div {
+    font-size: 12px;
+  }
+}
+* {
+  margin: 0;
+}
+body {
+  background-image: url(https://catherineasquithgallery.com/uploads/posts/2023-02/1676619122_catherineasquithgallery-com-p-na-salatovom-fone-risunok-167.jpg);
+  font-size: 16px;
+  font-family: Rubik, Roboto, sans-serif;
+  overflow-x: hidden;
+  color: rgb(48, 43, 43);
+  display: flex;
+  justify-content: center;
+  background-attachment: fixed;
+  height: 100vh;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: 25px;
+}
+
+input,
+button {
+  border: none;
+  background: none;
+  outline: none;
+  color: rgb(48, 43, 43);
+  font-size: 16px;
+  font-family: Rubik, Roboto, sans-serif;
+}
+
+a {
+  color: rgb(48, 43, 43);
+  text-decoration: none;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80vw;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  font-family: Roboto, sans-serif;
+  position: absolute;
+  bottom: 2%;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.247);
+  color: white;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+}
+.copyright > a {
+  color: white;
+}
+.copyright a:hover {
+  color: rgb(111, 3, 121);
+  font-family: Ubuntu;
+  font-weight: 700;
+}
+
+.copyright svg {
+  height: 25px;
+  width: 40px;
+  padding-left: 15px;
+}
+#response {
+  display: flex;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
