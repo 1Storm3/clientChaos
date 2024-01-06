@@ -36,7 +36,7 @@ const Login = () => {
       }
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        setErrorMessage("Пароль или логин неверный!");
+        setErrorMessage("Неверные данные или почта не подтверждена!");
         setPassword("");
       } else {
         console.error("error", error);

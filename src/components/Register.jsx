@@ -9,6 +9,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [existUser, setExistUser] = useState("");
@@ -23,6 +24,7 @@ const Register = () => {
         {
           username,
           password,
+          email,
         }
       );
       console.log(response.data, response.status);
@@ -79,6 +81,17 @@ const Register = () => {
             required
           />
         </div>
+        <div className={styles.group}>
+          <input
+            type="text"
+            placeholder="Электронный адрес"
+            className={styles.input}
+            onChange={(e) => setEmail(e.target.value)}
+            autoComplete="off"
+            required
+            value={email}
+          />
+        </div>
 
         <button type="submit" className={styles.button}>
           Регистрация
@@ -89,7 +102,9 @@ const Register = () => {
       </form>
       {registrationSuccess && (
         <div classname={styles.sucсessReg}>
-          <p className={styles.register}>Регистрация успешна!</p>
+          <p className={styles.register}>
+            Регистрация успешна, подтвердите почту
+          </p>
           <button onClick={closeSuccessMessage} className={styles.login}>
             Перейти на вход
           </button>

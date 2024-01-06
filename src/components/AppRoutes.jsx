@@ -6,6 +6,7 @@ import Login from "./Login";
 import Start from "./Start";
 import Register from "./Register";
 import { useAuth } from "./useAuth";
+import ConfirmPage from "./ConfirmPage";
 
 const AppRoutes = () => {
   const { isLoggedIn } = useAuth();
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/confirm" element={<ConfirmPage />}></Route>
     </Routes>
   );
 };
