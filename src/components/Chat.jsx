@@ -10,7 +10,7 @@ import styles from "../styles/Chat.module.css";
 import Messages from "./Messages";
 import axios from "axios";
 
-const socket = io.connect("https://chat-online-kjxa.onrender.com");
+const socket = io.connect("https://chaoschat.onrender.com");
 // const socket = io.connect("http://localhost:81");
 
 const Chat = () => {

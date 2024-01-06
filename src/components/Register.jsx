@@ -18,7 +18,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "https://chat-online-kjxa.onrender.com/register",
+        "https://chaoschat.onrender.com/register",
         // "http://localhost:81/register",
         {
           username,
