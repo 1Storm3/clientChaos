@@ -8,16 +8,18 @@ import Register from "./Register";
 import { useAuth } from "./useAuth";
 
 const AppRoutes = () => {
-  const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
+  const { isLoggedIn } = useAuth();
   return (
     <Routes>
       <Route path="/" element={<Start />} />
       <Route
         path="/sign"
-        element={isAuthenticated ? <Navigate to="/login" /> : <Sign />}
+        element={isLoggedIn ? <Sign /> : <Navigate to="/login" />}
       />
-      <Route path="/chat" element={<Chat />} />
+      <Route
+        path="/chat"
+        element={isLoggedIn ? <Chat /> : <Navigate to="/login" />}
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
     </Routes>

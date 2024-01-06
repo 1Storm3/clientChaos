@@ -33,6 +33,7 @@ export const AuthProvider = ({ children }) => {
 // Хук useAuth для использования информации об аутентификации
 export const useAuth = () => {
   const context = useContext(AuthContext);
+  console.log(context);
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }

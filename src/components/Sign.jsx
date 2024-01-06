@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logout from "./Logout";
 import styles from "../styles/Sign.module.css";
@@ -12,7 +12,7 @@ const FIELDS = {
 const Sign = () => {
   const location = useLocation();
   const { state } = location;
-  const username = state ? state.username : null;
+  const username = state ? state.username : localStorage.getItem("username");
   const { signOut } = useAuth();
   const { NAME, ROOM } = FIELDS;
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -27,6 +27,7 @@ const Sign = () => {
     setIsLoggedIn(false);
     signOut();
   };
+
   const handleClick = (e) => {
     // const isDisabled = Object.values(values).some((v) => !v);
     // if (isDisabled) {
@@ -38,7 +39,7 @@ const Sign = () => {
     if (!isAuthenticated) {
       navigate("/");
     } else {
-      navigate(`/chat?name=${values[NAME]}&room=${values[ROOM]}`);
+      navigate(`/chat?name=${username}&room=${values[ROOM]}`);
     }
   };
   return (
@@ -55,16 +56,17 @@ const Sign = () => {
 
         <form className={styles.form} onSubmit={handleClick}>
           <div className={styles.group}>
-            <input
+            {/* <input
               type="text"
               name="name"
-              value={values[NAME]}
+              value={username}
               placeholder="Имя пользователя"
               className={styles.input}
               onChange={handleChange}
               autoComplete="off"
+              readOnly
               required
-            />
+            /> */}
           </div>
           <div className={styles.group}>
             <input

@@ -7,7 +7,6 @@ import { useAuth } from "./useAuth";
 
 const Login = () => {
   const { signIn } = useAuth();
-
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
