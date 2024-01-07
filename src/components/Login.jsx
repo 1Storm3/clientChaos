@@ -27,15 +27,15 @@ const Login = () => {
         const token = response.data.access_token;
         signIn(token, username);
         localStorage.setItem("access_token", response.data.access_token);
-        setUsername(username);
-        navigate("/sign", { state: { username } });
+        localStorage.setItem("username", response.data.username);
+        navigate("/sign");
       } else {
         setErrorMessage("Пароль неверный");
         setUsername("");
         setPassword("");
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+      if (error.response && error.response.status === 422) {
         setErrorMessage("Неверные данные или почта не подтверждена!");
         setPassword("");
       } else {

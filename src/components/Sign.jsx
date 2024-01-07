@@ -10,9 +10,7 @@ const FIELDS = {
 };
 
 const Sign = () => {
-  const location = useLocation();
-  const { state } = location;
-  const username = state ? state.username : localStorage.getItem("username");
+  const username = localStorage.getItem("username");
   const { signOut } = useAuth();
   const { NAME, ROOM } = FIELDS;
   const [isLoggedIn, setIsLoggedIn] = useState(

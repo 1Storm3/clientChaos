@@ -8,11 +8,9 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!localStorage.getItem("access_token")
   );
-  const [username, setUsername] = useState("");
   const signIn = (token, username) => {
     localStorage.setItem("access_token", token);
     setIsLoggedIn(true);
-    setUsername(username);
   };
   const signOut = () => {
     localStorage.removeItem("access_token");
@@ -20,7 +18,6 @@ export const AuthProvider = ({ children }) => {
   };
   const authData = {
     isLoggedIn,
-    username,
     signIn,
     signOut,
     // Другие данные или функции для аутентификации
@@ -33,7 +30,6 @@ export const AuthProvider = ({ children }) => {
 // Хук useAuth для использования информации об аутентификации
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  console.log(context);
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }

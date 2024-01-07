@@ -39,6 +39,7 @@ const Register = () => {
           "Пользователь с таким именем уже существует или почта занята!"
         );
         setUsername("");
+        setEmail("");
       } else {
         console.error("eror registration", error);
         setErrorMessage("Ошибка при регистрации,пожалуйста попробуйте ещё");

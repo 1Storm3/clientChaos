@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     // Проверка на код ошибки "Unauthorized" (401)
-    if (error.response.status === 404 && !originalRequest._retry) {
+    if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
