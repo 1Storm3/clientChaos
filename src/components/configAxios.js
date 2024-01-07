@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-navigate = useNavigate();
 const axiosInstance = axios.create({
   baseURL: "https://chaoschat.onrender.com",
 });
@@ -25,6 +24,7 @@ axiosInstance.interceptors.response.use(
   (response) => {
     return response;
   },
+
   async (error) => {
     const originalRequest = error.config;
 
@@ -49,7 +49,6 @@ axiosInstance.interceptors.response.use(
       } catch (refreshError) {
         // Обработка ошибки при обновлении токена
         console.error("Ошибка при обновлении токена:", refreshError);
-        navigate("/login");
       }
     }
     return Promise.reject(error);

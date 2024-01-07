@@ -14,7 +14,6 @@ const socket = io.connect("https://chaoschat.onrender.com");
 // const socket = io.connect("http://localhost:81");
 
 const Chat = () => {
-  const { username } = useAuth();
   const { search } = useLocation();
   const navigate = useNavigate();
   const [params, setParams] = useState({ room: "", name: "" });
@@ -42,7 +41,7 @@ const Chat = () => {
   const leftRoom = () => {
     socket.emit("leftRoom", { params });
 
-    navigate("/sign", { state: { username } });
+    navigate("/sign");
   };
 
   const handleChange = ({ target: { value } }) => setMessage(value);
