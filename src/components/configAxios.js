@@ -1,6 +1,10 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const axiosInstance = axios.create();
+navigate = useNavigate();
+const axiosInstance = axios.create({
+  baseURL: "https://chaoschat.onrender.com",
+});
 
 axiosInstance.interceptors.request.use(
   (config) => {
@@ -30,21 +34,22 @@ axiosInstance.interceptors.response.use(
 
       try {
         // Запрос на обновление access-токена при ошибке "Unauthorized"
-        const refreshResponse = await axios.post("/refresh");
+        const refreshToken = localStorage.getItem("refresh_token");
+        const refreshResponse = await axiosInstance.post("/refresh", {
+          refreshToken,
+        });
 
         // Если обновление токена успешно, повторный запрос с новым access-токеном
-        if (refreshResponse.status === 200) {
-          const newAccessToken = refreshResponse.data.acess_token;
-          // Сохранение нового access-токена
-          localStorage.setItem("accessToken", newAccessToken);
-          // Повторный запрос с обновленным токеном
-          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-          return axiosInstance(originalRequest);
-        }
+        const newAccessToken = refreshResponse.data.access_token;
+        // Сохранение нового access-токена
+        localStorage.setItem("accessToken", newAccessToken);
+        // Повторный запрос с обновленным токеном
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+        return axiosInstance(originalRequest);
       } catch (refreshError) {
         // Обработка ошибки при обновлении токена
         console.error("Ошибка при обновлении токена:", refreshError);
-        return Promise.reject(refreshError);
+        navigate("/login");
       }
     }
     return Promise.reject(error);
