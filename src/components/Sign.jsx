@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logout from "./Logout";
 import styles from "../styles/Sign.module.css";
 import { useAuth } from "./useAuth";

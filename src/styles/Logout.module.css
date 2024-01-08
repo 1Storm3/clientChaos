@@ -2,23 +2,36 @@
   cursor: pointer;
   width: 100px;
   height: 30px;
-  background: #c70000;
-  font-size: 16px;
+  background: #0ad8ce;
   color: #ffffff;
   border-radius: 8px;
+  font-weight: 600;
   position: absolute;
   top: 10px;
   right: 10px;
 }
 .user {
-  position: absolute;
-  top: 10px;
-  left: 10px;
   width: 100px;
   line-height: 30px;
-  background: #00c72b;
+  background: #0ad8ce;
   text-align: center;
   border-radius: 8px;
   color: #ffffff;
   font-weight: 600;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.profile {
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  width: 100px;
+  background-color: #0ad8ce;
+  color: #ffffff;
+  border-radius: 8px;
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

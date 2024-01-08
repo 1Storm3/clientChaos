@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../styles/Logout.module.css";
 const Logout = ({ onLogout, username }) => {
   const navigate = useNavigate();
@@ -12,10 +12,15 @@ const Logout = ({ onLogout, username }) => {
 
   return (
     <div>
-      <div className={styles.user}>{username}</div>
-      <button onClick={handleLogout} className={styles.logout}>
-        Выход
-      </button>
+      <div className={styles.header}>
+        <div className={styles.user}>{username}</div>
+        <Link to={"/profile"}>
+          <div className={styles.profile}>Профиль</div>
+        </Link>
+        <button onClick={handleLogout} className={styles.logout}>
+          Выход
+        </button>
+      </div>
     </div>
   );
 };

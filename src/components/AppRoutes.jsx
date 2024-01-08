@@ -7,6 +7,7 @@ import Start from "./Start";
 import Register from "./Register";
 import { useAuth } from "./useAuth";
 import ConfirmPage from "./ConfirmPage";
+import Profile from "./Profile";
 
 const AppRoutes = () => {
   const { isLoggedIn } = useAuth();
@@ -20,6 +21,10 @@ const AppRoutes = () => {
       <Route
         path="/chat"
         element={isLoggedIn ? <Chat /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/profile"
+        element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
       />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

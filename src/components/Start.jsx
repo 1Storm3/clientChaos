@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "../styles/Start.module.css";
 import axiosInstance from "./configAxios";
 
 const Start = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticated = () => {
+      const token = localStorage.getItem("access_token");
+      return token !== null;
+    };
+
+    if (isAuthenticated()) {
+      return navigate("/sign");
+    }
+  }, [navigate]);
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>
@@ -20,7 +32,7 @@ const Start = () => {
         <button className={styles.button}>Регистрация</button>{" "}
       </Link>
       <div className="copyright">
-        Developed by{" "}
+        Developed by
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
