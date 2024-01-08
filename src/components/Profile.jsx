@@ -28,7 +28,7 @@ const Profile = () => {
       })
       .then((response) => {
         console.log(response);
-        setFilePath(response.data.fileData.filepath);
+        setFilePath(response.data.fileData.profile_picture);
       })
       .catch((error) => {
         console.error("error load file", error);
