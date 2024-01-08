@@ -43,10 +43,10 @@ const Sign = () => {
 
   useEffect(() => {
     axios
-      .get(`https://chaoschat.onrender.com/load/${username}`)
+      .get("https://chaoschat.onrender.com/load")
       .then((response) => {
         console.log(response);
-        setProfilePic(response.data.profile_picture);
+        setProfilePic(response.data.filedata.profile_picture);
       })
       .catch((error) => {
         console.error(" error infi", error);
