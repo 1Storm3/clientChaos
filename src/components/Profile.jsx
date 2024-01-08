@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import styles from "../styles/Profile.module.css";
 import axios from "axios";
@@ -7,18 +7,18 @@ const Profile = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!localStorage.getItem("access_token")
   );
+  const username = localStorage.getItem("username");
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [filePath, setFilePath] = useState("");
-  console.log(filePath);
   const onChangeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
   const onClickHandler = () => {
     const formData = new FormData();
     formData.append("photo", selectedFile);
-
     axios
-      .post("https://chaoschat.onrender.com/upload", formData, {
+      .post("https://chaoschat.onrender.com/upload", formData, username, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -49,6 +49,7 @@ const Profile = () => {
             <img
               src={`https://chaoschat.onrender.com/${filePath}`}
               alt="Загруженное изображение"
+              style={{ width: "300px", height: "auto" }}
             />
           </div>
         )}

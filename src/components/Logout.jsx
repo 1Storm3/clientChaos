@@ -4,6 +4,10 @@ import styles from "../styles/Logout.module.css";
 const Logout = ({ onLogout, username }) => {
   const navigate = useNavigate();
 
+  const handleProfile = () => {
+    navigate("/profile");
+  };
+
   const handleLogout = () => {
     onLogout();
     localStorage.removeItem("access_token");
@@ -14,9 +18,9 @@ const Logout = ({ onLogout, username }) => {
     <div>
       <div className={styles.header}>
         <div className={styles.user}>{username}</div>
-        <Link to={"/profile"}>
-          <div className={styles.profile}>Профиль</div>
-        </Link>
+        <button className={styles.profile} onClick={handleProfile}>
+          Профиль
+        </button>
         <button onClick={handleLogout} className={styles.logout}>
           Выход
         </button>

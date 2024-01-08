@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logout from "./Logout";
 import styles from "../styles/Sign.module.css";
 import { useAuth } from "./useAuth";
+import axios from "axios";
 const FIELDS = {
   NAME: "name",
   ROOM: "room",
@@ -11,8 +12,11 @@ const FIELDS = {
 
 const Sign = () => {
   const username = localStorage.getItem("username");
+  const [profilePic, setProfilePic] = useState(null);
   const { signOut } = useAuth();
+
   const { NAME, ROOM } = FIELDS;
+
   const [isLoggedIn, setIsLoggedIn] = useState(
     !!localStorage.getItem("access_token")
   );
@@ -27,10 +31,6 @@ const Sign = () => {
   };
 
   const handleClick = (e) => {
-    // const isDisabled = Object.values(values).some((v) => !v);
-    // if (isDisabled) {
-    //   e.preventDefault();
-    // }
     e.preventDefault();
     const isAuthenticated = !!localStorage.getItem("access_token");
 
@@ -40,10 +40,28 @@ const Sign = () => {
       navigate(`/chat?name=${username}&room=${values[ROOM]}`);
     }
   };
+
+  useEffect(() => {
+    axios
+      .get("https://chaoschat.onrender.com/upload")
+      .then((response) => {
+        setProfilePic(response.data.fileData.filepath);
+      })
+      .catch((error) => {
+        console.error(" error infi", error);
+      });
+  }, []);
+
   return (
     <div className={styles.wrap}>
       <div className={styles.container}>
         {isLoggedIn && <Logout onLogout={handleLogout} username={username} />}
+        {isLoggedIn && profilePic && (
+          <img
+            src={`https://chaoschat.onrender.com/${profilePic}`}
+            alt="Фотография профиля"
+          />
+        )}
         <h1 className={styles.heading}>
           <img
             src="https://i.imgur.com/XcdwWvj.png"
@@ -53,19 +71,7 @@ const Sign = () => {
         </h1>
 
         <form className={styles.form} onSubmit={handleClick}>
-          <div className={styles.group}>
-            {/* <input
-              type="text"
-              name="name"
-              value={username}
-              placeholder="Имя пользователя"
-              className={styles.input}
-              onChange={handleChange}
-              autoComplete="off"
-              readOnly
-              required
-            /> */}
-          </div>
+          <div className={styles.group}></div>
           <div className={styles.group}>
             <input
               type="number"
@@ -83,11 +89,6 @@ const Sign = () => {
             Вход
           </button>
         </form>
-        {/* <Link to={"/login"}>
-          <button type="submit" className={styles.login}>
-            Авторизация
-          </button>
-        </Link> */}
       </div>
     </div>
   );
