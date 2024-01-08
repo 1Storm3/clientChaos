@@ -52,7 +52,7 @@ const Profile = () => {
             <img
               src={`https://chaoschat.onrender.com/${filePath}`}
               alt="Загруженное изображение"
-              style={{ width: "300px", height: "auto" }}
+              style={{ width: "200px", height: "auto", borderRadius: "10px" }}
             />
           </div>
         )}

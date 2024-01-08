@@ -52,7 +52,7 @@ const Sign = () => {
       })
       .then((response) => {
         console.log(response);
-        setProfilePic(response.data.filedata.profile_picture);
+        setProfilePic(response.data.filedata.filepath);
       })
       .catch((error) => {
         console.error(" error infi", error);
