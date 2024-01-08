@@ -16,13 +16,15 @@ const Profile = () => {
   };
   const onClickHandler = () => {
     const formData = new FormData();
+
     formData.append("photo", selectedFile);
     axios
-      .post("https://chaoschat.onrender.com/upload", formData, username, {
+      .post("https://chaoschat.onrender.com/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
+        params: { username },
       })
       .then((response) => {
         console.log(response);

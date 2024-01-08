@@ -60,6 +60,7 @@ const Sign = () => {
           <img
             src={`https://chaoschat.onrender.com/${profilePic}`}
             alt="Фотография профиля"
+            style={{ width: "200px", height: "auto", borderRadius: "10px" }}
           />
         )}
         <h1 className={styles.heading}>
