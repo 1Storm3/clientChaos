@@ -43,7 +43,13 @@ const Sign = () => {
 
   useEffect(() => {
     axios
-      .get("https://chaoschat.onrender.com/load")
+      .post("https://chaoschat.onrender.com/load", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+        params: { username },
+      })
       .then((response) => {
         console.log(response);
         setProfilePic(response.data.filedata.profile_picture);
