@@ -9,7 +9,7 @@ const Profile = () => {
   );
   const [selectedFile, setSelectedFile] = useState(null);
   const [filePath, setFilePath] = useState("");
-
+  console.log(filePath);
   const onChangeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -25,7 +25,7 @@ const Profile = () => {
         },
       })
       .then((response) => {
-        setFilePath(response.data.path);
+        setFilePath(response.data.fileData.filepath);
       })
       .catch((error) => {
         console.error("error load file", error);
