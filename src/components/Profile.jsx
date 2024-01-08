@@ -25,6 +25,7 @@ const Profile = () => {
         },
       })
       .then((response) => {
+        console.log(response);
         setFilePath(response.data.fileData.filepath);
       })
       .catch((error) => {
