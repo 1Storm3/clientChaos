@@ -40,6 +40,9 @@ const Logout = ({ onLogout, username }) => {
   return (
     <div>
       <div className={styles.header}>
+        <button className={styles.profile} onClick={handleProfile}>
+          Профиль
+        </button>
         <div className={styles.user}>
           {username}
           {profilePic && (
@@ -51,10 +54,6 @@ const Logout = ({ onLogout, username }) => {
             />
           )}
         </div>
-
-        <button className={styles.profile} onClick={handleProfile}>
-          Профиль
-        </button>
         <button onClick={handleLogout} className={styles.logout}>
           Выход
         </button>
