@@ -12,7 +12,6 @@ const FIELDS = {
 
 const Sign = () => {
   const username = localStorage.getItem("username");
-  const [profilePic, setProfilePic] = useState(null);
   const { signOut } = useAuth();
 
   const { NAME, ROOM } = FIELDS;
@@ -41,35 +40,10 @@ const Sign = () => {
     }
   };
 
-  useEffect(() => {
-    axios
-      .post("https://chaoschat.onrender.com/load", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        },
-        params: { username },
-      })
-      .then((response) => {
-        console.log(response);
-        setProfilePic(response.data.filedata.filepath);
-      })
-      .catch((error) => {
-        console.error(" error infi", error);
-      });
-  }, []);
-
   return (
     <div className={styles.wrap}>
+      {isLoggedIn && <Logout onLogout={handleLogout} username={username} />}
       <div className={styles.container}>
-        {isLoggedIn && <Logout onLogout={handleLogout} username={username} />}
-        {isLoggedIn && profilePic && (
-          <img
-            src={`https://chaoschat.onrender.com/${profilePic}`}
-            alt="Фотография профиля"
-            style={{ width: "200px", height: "auto", borderRadius: "10px" }}
-          />
-        )}
         <h1 className={styles.heading}>
           <img
             src="https://i.imgur.com/XcdwWvj.png"

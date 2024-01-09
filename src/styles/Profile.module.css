@@ -22,3 +22,9 @@
   border-radius: 15px;
   margin: 5px;
 }
+
+.profilePhoto {
+  position: absolute;
+  bottom: 10px;
+  left: 25vw;
+}

@@ -28,7 +28,7 @@ const Profile = () => {
       })
       .then((response) => {
         console.log(response);
-        setFilePath(response.data.fileData.profile_picture);
+        alert("Фото обновлено");
       })
       .catch((error) => {
         console.error("error load file", error);
@@ -42,20 +42,12 @@ const Profile = () => {
         <Link to={"/sign"}>
           <div className={styles.linkToSign}>Назад</div>
         </Link>
-        <input type="file" onChange={onChangeHandler}></input>
-        <button className={styles.button} onClick={onClickHandler}>
-          Загрузить фото
-        </button>
-        {filePath && (
-          <div>
-            <h2>Фото профиля</h2>
-            <img
-              src={`https://chaoschat.onrender.com/${filePath}`}
-              alt="Загруженное изображение"
-              style={{ width: "200px", height: "auto", borderRadius: "10px" }}
-            />
-          </div>
-        )}
+        <div className={styles.profilePhoto}>
+          <input type="file" onChange={onChangeHandler}></input>
+          <button className={styles.button} onClick={onClickHandler}>
+            Загрузить фото
+          </button>
+        </div>
       </div>
     </div>
   );
