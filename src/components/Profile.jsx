@@ -24,7 +24,6 @@ const Profile = () => {
         params: { username },
       })
       .then((response) => {
-        console.log(response);
         alert("Фото обновлено");
       })
       .catch((error) => {
