@@ -1,16 +1,13 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "../styles/Profile.module.css";
 import axios from "axios";
 const Profile = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    !!localStorage.getItem("access_token")
-  );
   const username = localStorage.getItem("username");
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [filePath, setFilePath] = useState("");
+
   const onChangeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -42,12 +39,12 @@ const Profile = () => {
         <Link to={"/sign"}>
           <div className={styles.linkToSign}>Назад</div>
         </Link>
-        <div className={styles.profilePhoto}>
-          <input type="file" onChange={onChangeHandler}></input>
-          <button className={styles.button} onClick={onClickHandler}>
-            Загрузить фото
-          </button>
-        </div>
+      </div>
+      <div className={styles.profilePhoto}>
+        <input type="file" onChange={onChangeHandler}></input>
+        <button className={styles.button} onClick={onClickHandler}>
+          Загрузить фото
+        </button>
       </div>
     </div>
   );

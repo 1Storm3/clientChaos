@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/Logout.module.css";
 
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ const Logout = ({ onLogout, username }) => {
       .catch((error) => {
         console.error(" error infi", error);
       });
-  }, []);
+  }, [username]);
   const handleProfile = () => {
     navigate("/profile");
   };
@@ -43,20 +43,22 @@ const Logout = ({ onLogout, username }) => {
         <button className={styles.profile} onClick={handleProfile}>
           Профиль
         </button>
-        <div className={styles.user}>
-          {username}
-          {profilePic && (
-            <img
-              id={styles.photo}
-              src={`https://chaoschat.onrender.com/${profilePic}`}
-              alt="Фотография профиля"
-              // style={{ width: "200px", height: "auto", borderRadius: "100px" }}
-            />
-          )}
+        <div className={styles.profileUser}>
+          <div className={styles.user}>
+            {username}
+            {profilePic && (
+              <img
+                id={styles.photo}
+                src={`https://chaoschat.onrender.com/${profilePic}`}
+                alt="Фотография профиля"
+                // style={{ width: "200px", height: "auto", borderRadius: "100px" }}
+              />
+            )}
+          </div>
+          <button onClick={handleLogout} className={styles.logout}>
+            Выход
+          </button>
         </div>
-        <button onClick={handleLogout} className={styles.logout}>
-          Выход
-        </button>
       </div>
     </div>
   );

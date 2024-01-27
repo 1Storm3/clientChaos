@@ -1,14 +1,12 @@
 .linkToSign {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 100px;
   line-height: 40px;
-  background: #0ad8ce;
   border-radius: 8px;
   font-weight: 600;
-  color: white;
+  color: rgba(29, 29, 29, 0.6);
   text-align: center;
+  width: 80px;
+  display: flex;
+  justify-content: center;
 }
 .button {
   cursor: pointer;
@@ -20,11 +18,13 @@
   font-weight: 700;
   color: #ffffff;
   border-radius: 15px;
-  margin: 5px;
 }
 
+.header {
+  height: 60px;
+  background-color: rgba(245, 245, 245, 0.85);
+  width: 100vw;
+}
 .profilePhoto {
-  position: absolute;
-  bottom: 10px;
-  left: 25vw;
+  display: flex;
 }

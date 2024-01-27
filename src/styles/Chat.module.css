@@ -2,9 +2,20 @@
   .header {
     width: 100vw !important;
   }
+  .wrap {
+    width: 100vw !important;
+  }
+  .messages {
+    padding: 10px !important;
+  }
+}
+
+.chat {
+  display: flex;
+  justify-content: center;
 }
 .wrap {
-  width: 100%;
+  width: 80vw;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,7 +24,7 @@
 }
 .header {
   top: 0;
-  width: 100vw;
+  width: 80vw;
   position: sticky;
   color: #fff;
   background: #333;

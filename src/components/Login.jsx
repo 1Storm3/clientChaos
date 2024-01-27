@@ -26,7 +26,7 @@ const Login = () => {
       if (response.data.message === "true") {
         const token = response.data.access_token;
         signIn(token, username);
-        localStorage.setItem("access_token", response.data.access_token);
+        // localStorage.setItem("access_token", response.data.access_token);
         localStorage.setItem("username", response.data.username);
         navigate("/sign");
       } else {
@@ -49,6 +49,7 @@ const Login = () => {
       <div className={styles.container}>
         <h1 className={styles.heading}>
           <img
+            alt="drop"
             src="https://i.imgur.com/XcdwWvj.png"
             width="120px"
             height="10px"

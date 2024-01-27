@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "./configAxios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -57,6 +56,7 @@ const Register = () => {
     <div>
       <h1 className={styles.heading}>
         <img
+          alt="drop"
           src="https://i.imgur.com/XcdwWvj.png"
           width="120px"
           height="10px"
