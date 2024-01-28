@@ -53,7 +53,7 @@ const Register = () => {
     navigate("/login");
   }
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={styles.heading}>
         <img
           alt="drop"

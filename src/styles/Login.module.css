@@ -29,7 +29,6 @@
   display: inline-flex;
   padding: 50px 40px;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
   border-radius: 20px;
   background: #1c1c1c;
@@ -37,11 +36,6 @@
 .submit:hover {
   color: #000;
   background-color: #fff;
-}
-.container h1 {
-  font-size: 24px;
-  padding-bottom: 12px;
-  text-align: center;
 }
 
 .back {
@@ -71,27 +65,16 @@
   justify-content: center;
   padding-bottom: 10px;
 }
-.container {
-  top: 50%;
-}
-
-.copyright {
-  position: absolute;
-  bottom: 0;
-}
 
 .container {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 
-.form a {
-  width: 100%;
-}
 .button {
   margin-top: 20px;
   cursor: pointer;

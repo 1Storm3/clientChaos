@@ -1,12 +1,13 @@
 .linkToSign {
   line-height: 40px;
-  border-radius: 8px;
   font-weight: 600;
   color: rgba(29, 29, 29, 0.6);
-  text-align: center;
   width: 80px;
-  display: flex;
-  justify-content: center;
+  padding-left: 10px;
+}
+
+.linkToSign:hover {
+  color: black;
 }
 .button {
   cursor: pointer;
@@ -24,7 +25,75 @@
   height: 60px;
   background-color: rgba(245, 245, 245, 0.85);
   width: 100vw;
+  display: flex;
+  align-items: center;
 }
 .profilePhoto {
   display: flex;
+}
+
+.container {
+  display: flex;
+}
+.profilePhoto input {
+  background-color: #4d2072;
+  cursor: pointer;
+}
+
+.inputFile {
+  position: relative;
+  display: inline-block;
+}
+.inputFile span {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  vertical-align: middle;
+  color: rgb(255 255 255);
+  text-align: center;
+  border-radius: 15px;
+  background-color: #419152;
+  line-height: 22px;
+  height: 40px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+
+.inputFile input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+/* Focus */
+.inputFile input[type="file"]:focus + span {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Hover/active */
+.inputFile:hover span {
+  background-color: #59be6e;
+}
+
+/* Disabled */
+.inputFile input[type="file"]:disabled + span {
+  background-color: #eee;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
 }

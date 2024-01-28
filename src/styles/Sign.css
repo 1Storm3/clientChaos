@@ -1,12 +1,11 @@
-@media (max-width: 430px) {
+/* @media (max-width: 430px) {
   .container {
     width: 100vw !important;
-    height: 100vh !important;
   }
   .container div {
     font-size: 16px;
   }
-}
+} */
 * {
   margin: 0;
 }
@@ -17,12 +16,8 @@ body {
   font-family: Rubik, Roboto, sans-serif;
   overflow-x: hidden;
   color: rgb(48, 43, 43);
-  display: flex;
-  justify-content: center;
   background-attachment: fixed;
-  align-items: center;
   height: 100vh;
-  position: relative;
 }
 
 h1,
@@ -43,7 +38,6 @@ p {
 }
 
 img {
-  max-width: 100%;
   height: 25px;
 }
 
@@ -95,9 +89,9 @@ li {
   width: 40px;
   padding-left: 15px;
 }
-#response {
+/* #response {
   display: flex;
-}
+} */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

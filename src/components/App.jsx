@@ -3,11 +3,9 @@ import AppRoutes from "./AppRoutes";
 import { AuthProvider } from "./useAuth";
 
 const App = () => (
-  <div className="container">
-    <AuthProvider>
-      <AppRoutes />
-    </AuthProvider>
-  </div>
+  <AuthProvider>
+    <AppRoutes />
+  </AuthProvider>
 );
 
 export default App;

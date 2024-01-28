@@ -50,8 +50,7 @@ const Logout = ({ onLogout, username }) => {
               <img
                 id={styles.photo}
                 src={`https://chaoschat.onrender.com/${profilePic}`}
-                alt="Фотография профиля"
-                // style={{ width: "200px", height: "auto", borderRadius: "100px" }}
+                alt=""
               />
             )}
           </div>

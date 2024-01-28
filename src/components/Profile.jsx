@@ -32,18 +32,23 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wrap}>
       <div className={styles.header}>
         <div className={styles.user}></div>
         <Link to={"/sign"}>
           <div className={styles.linkToSign}>Назад</div>
         </Link>
       </div>
-      <div className={styles.profilePhoto}>
-        <input type="file" onChange={onChangeHandler}></input>
-        <button className={styles.button} onClick={onClickHandler}>
-          Загрузить фото
-        </button>
+      <div className={styles.container}>
+        <div className={styles.profilePhoto}>
+          <label className={styles.inputFile}>
+            <input type="file" onChange={onChangeHandler}></input>
+            <span>Выберите файл</span>
+          </label>
+          <button className={styles.button} onClick={onClickHandler}>
+            Загрузить фото
+          </button>
+        </div>
       </div>
     </div>
   );
