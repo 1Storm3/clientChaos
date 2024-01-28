@@ -1,18 +1,23 @@
 .logout {
   cursor: pointer;
   width: 100px;
-  height: 30px;
+  height: 60px;
   color: rgba(29, 29, 29, 0.6);
   border-radius: 8px;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .user {
   margin-right: 15px;
-  height: 30px;
-  width: 100px;
+  height: 60px;
+  width: 120px;
   color: rgba(163, 5, 255, 0.6);
   font-weight: 900;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row-reverse;
 }
 .profile {
@@ -38,11 +43,9 @@
 
 #photo {
   margin-right: 10px;
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
-  position: relative;
-  top: -15px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
   object-fit: cover;
 }
 
