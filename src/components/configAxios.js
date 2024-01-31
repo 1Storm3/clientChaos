@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const axiosInstance = axios.create({
   baseURL: "https://chaoschat.onrender.com",
 });
@@ -9,7 +8,7 @@ axiosInstance.interceptors.request.use(
     // Добавление access-токена к каждому запросу
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
+      config.headers.Authorization = ` ${accessToken}`;
     }
     return config;
   },
@@ -33,17 +32,21 @@ axiosInstance.interceptors.response.use(
 
       try {
         // Запрос на обновление access-токена при ошибке "Unauthorized"
-        const refreshToken = localStorage.getItem("refresh_token");
-        const refreshResponse = await axiosInstance.post("/refresh", {
-          refreshToken,
-        });
+        const accessToken = localStorage.getItem("access_token");
+        const refreshResponse = await axios.post(
+          "http://localhost:81/refresh",
+          {
+            accessToken,
+          },
+          { withCredentials: true }
+        );
 
         // Если обновление токена успешно, повторный запрос с новым access-токеном
         const newAccessToken = refreshResponse.data.access_token;
         // Сохранение нового access-токена
         localStorage.setItem("accessToken", newAccessToken);
         // Повторный запрос с обновленным токеном
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+        originalRequest.headers.Authorization = ` ${newAccessToken}`;
         return axiosInstance(originalRequest);
       } catch (refreshError) {
         // Обработка ошибки при обновлении токена

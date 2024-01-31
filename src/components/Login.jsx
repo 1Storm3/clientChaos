@@ -21,6 +21,10 @@ const Login = () => {
         {
           password,
           username,
+        },
+        {
+          withCredentials: true,
+          credentials: "include",
         }
       );
       if (response.data.message === "true") {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "../styles/Profile.module.css";
-import axios from "axios";
+import axiosInstance from "./configAxios";
 const Profile = () => {
   const username = localStorage.getItem("username");
 
@@ -13,15 +13,17 @@ const Profile = () => {
   };
   const onClickHandler = () => {
     const formData = new FormData();
-
+    //
     formData.append("photo", selectedFile);
-    axios
+    axiosInstance
       .post("https://chaoschat.onrender.com/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          Authorization: `${localStorage.getItem("access_token")}`,
         },
-        params: { username },
+        data: { username },
+        withCredentials: true,
+        credentials: "include",
       })
       .then((response) => {
         alert("Фото обновлено");
