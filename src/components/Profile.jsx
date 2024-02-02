@@ -15,6 +15,8 @@ const Profile = () => {
     const formData = new FormData();
     //
     formData.append("photo", selectedFile);
+    // "http://localhost:81/upload"
+
     axiosInstance
       .post("https://chaoschat.onrender.com/upload", formData, {
         headers: {
