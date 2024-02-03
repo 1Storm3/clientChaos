@@ -5,7 +5,6 @@ import styles from "../styles/Profile.module.css";
 import axiosInstance from "./configAxios";
 const Profile = () => {
   const username = localStorage.getItem("username");
-
   const [selectedFile, setSelectedFile] = useState(null);
 
   const onChangeHandler = (event) => {
@@ -15,6 +14,7 @@ const Profile = () => {
     const formData = new FormData();
     //
     formData.append("photo", selectedFile);
+    formData.append("username", username);
     // "http://localhost:81/upload"
 
     axiosInstance
@@ -23,7 +23,6 @@ const Profile = () => {
           "Content-Type": "multipart/form-data",
           Authorization: `${localStorage.getItem("access_token")}`,
         },
-        data: { username },
         withCredentials: true,
         credentials: "include",
       })
