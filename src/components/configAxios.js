@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const axiosInstance = axios.create({
   // "http://localhost:81"
 
@@ -55,6 +57,13 @@ axiosInstance.interceptors.response.use(
         // Обработка ошибки при обновлении токена
         console.error("Ошибка при обновлении токена:", refreshError);
       }
+    } else if (error.response.status === 403) {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("username");
+
+      const navigate = useNavigate();
+
+      navigate("/login");
     }
     return Promise.reject(error);
   }
