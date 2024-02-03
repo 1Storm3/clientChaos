@@ -60,10 +60,6 @@ axiosInstance.interceptors.response.use(
     } else if (error.response.status === 403) {
       localStorage.removeItem("access_token");
       localStorage.removeItem("username");
-
-      const navigate = useNavigate();
-
-      navigate("/login");
     }
     return Promise.reject(error);
   }
