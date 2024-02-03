@@ -9,7 +9,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     // Добавление access-токена к каждому запросу
     const accessToken = localStorage.getItem("access_token");
-    console.log(accessToken);
+
     if (accessToken) {
       config.headers.Authorization = accessToken;
     }

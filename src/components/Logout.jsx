@@ -22,7 +22,6 @@ const Logout = ({ onLogout, username }) => {
       )
       .then((response) => {
         setProfilePic(response.data.fileData);
-        console.log(response);
       })
       .catch((error) => {
         console.error(" error infi", error);
@@ -34,6 +33,7 @@ const Logout = ({ onLogout, username }) => {
 
   const handleLogout = () => {
     onLogout();
+    localStorage.removeItem("username");
     localStorage.removeItem("access_token");
     navigate("/");
   };
