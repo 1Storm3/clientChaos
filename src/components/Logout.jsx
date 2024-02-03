@@ -16,12 +16,13 @@ const Logout = ({ onLogout, username }) => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            Authorization: ` ${localStorage.getItem("access_token")}`,
           },
         }
       )
       .then((response) => {
         setProfilePic(response.data.fileData);
+        console.log(response);
       })
       .catch((error) => {
         console.error(" error infi", error);
